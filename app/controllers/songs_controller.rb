@@ -18,13 +18,11 @@ class SongsController < ApplicationController
     end
     song.save
     flash[:message] = "Successfully created song."
-    binding.pry
     redirect :"/songs/#{song.slug}"
   end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    binding.pry
     erb :"/songs/show"
   end
 
